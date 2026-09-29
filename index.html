@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prasad Sarnobat — Webflow, WordPress & Shopify Developer</title>
+<meta name="description" content="Webflow, WordPress and Shopify developer in Kolhapur, India. 2 years 9 months building fast, responsive websites and online stores.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  --bg:#0c0f14;--surface:#141922;--surface2:#1b2230;--line:#263042;
+  --text:#e8edf4;--muted:#93a0b4;--accent:#8ea2ff;--accent-ink:#0c0f14;
+  --wp:#5ec2f0;--sh:#8bd17c;--wfl:#6ea8ff;--oth:#c79bf2;
+  --display:"Bricolage Grotesque","Segoe UI",system-ui,sans-serif;
+  --body:"DM Sans","Segoe UI",system-ui,sans-serif;
+  box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+*,*::before,*::after{box-sizing:inherit}
+body{margin:0;background:var(--bg);color:var(--text);font:400 16px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:1280px;margin:0 auto;padding:0 24px}
+h1,h2,h3{font-family:var(--display);line-height:1.1;margin:0;letter-spacing:-.02em}
+section{padding:88px 0}
+.sec-head{margin-bottom:36px;max-width:620px}
+.sec-head h2{font-size:clamp(28px,4vw,40px);font-weight:800}
+.sec-head p{color:var(--muted);margin:12px 0 0}
+
+/* nav */
+nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:rgba(12,15,20,.86);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--display);font-weight:700}
+.mono{width:34px;height:34px;border-radius:10px;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;font-weight:800;font-size:15px;overflow:hidden;flex-shrink:0}
+.mono img{width:100%;height:100%;object-fit:cover;display:block;border-radius:10px}
+.links{display:flex;gap:26px;font-size:15px;color:var(--muted)}
+.links a:hover{color:var(--text)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;font-weight:600;font-size:15px;border:1px solid var(--line);background:transparent;color:var(--text);cursor:pointer;font-family:var(--body)}
+.btn.primary{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.btn:hover{border-color:var(--accent)}
+.btn.primary:hover{background:#a5b5ff}
+
+/* hero */
+.hero{padding:80px 0 72px;display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+.role{color:var(--accent);font-weight:600;margin:0 0 18px}
+.hero h1{font-size:clamp(38px,6vw,68px);font-weight:800}
+.hero .lead{color:var(--muted);font-size:18px;max-width:560px;margin:22px 0 30px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.card-id{background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:28px}
+
+/* image upload fields */
+.avatar{width:100%;height:auto;border-radius:24px;background:linear-gradient(135deg,var(--accent),#5b6ee0);margin-bottom:18px;overflow:hidden}
+.avatar img{width:100%;max-height:400px;object-fit:cover;border-radius:24px;display:block}
+
+.card-id h3{font-size:22px}
+.card-id p{margin:4px 0 18px;color:var(--muted);font-size:15px}
+.status{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:600;padding:7px 14px;border-radius:999px;background:rgba(139,209,124,.12);color:var(--sh)}
+.status::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--sh)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:18px;background:var(--surface);overflow:hidden}
+.stat{padding:26px 24px;border-right:1px solid var(--line)}
+.stat:last-child{border-right:0}
+.stat b{display:block;font:800 36px var(--display);letter-spacing:-.02em}
+.stat span{color:var(--muted);font-size:14px}
+
+/* platforms */
+.plat{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.pl{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;border-top:3px solid var(--c)}
+.pl h3{font-size:19px;margin-bottom:8px}
+.pl p{margin:0;color:var(--muted);font-size:15px}
+
+/* work */
+.filters{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:28px}
+.chip-btn{padding:8px 18px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);font:500 14px var(--body);cursor:pointer}
+.chip-btn[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.work{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:12px}
+.work[hidden]{display:none}
+.tag-p{font-size:13px;font-weight:600;color:var(--c)}
+.work h3{font-size:19px}
+.work p{margin:0;color:var(--muted);font-size:15px;flex:1}
+.tags{display:flex;flex-wrap:wrap;gap:6px}
+.tags span,.skill span{font-size:13px;padding:4px 11px;border-radius:999px;background:var(--surface2);color:#c7d0de}
+.wp{--c:var(--wp)}.sh{--c:var(--sh)}.wf{--c:var(--wfl)}.ot{--c:var(--oth)}.wx{--c:#f27bb0}
+.proj{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px;display:flex;flex-direction:column;gap:10px;transition:border-color .15s,transform .15s}
+.proj[hidden]{display:none}
+.proj:hover{border-color:var(--c);transform:translateY(-2px)}
+.proj h3{font-size:19px}
+.proj small{color:var(--muted);font-size:14px;margin-top:-6px}
+.proj p{margin:0;color:var(--muted);font-size:15px;flex:1}
+.visit{font-weight:600;font-size:14px;color:var(--c)}
+
+/* skills */
+.skills{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.skill{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
+.skill h3{font-size:17px;margin-bottom:14px;color:var(--c,var(--text))}
+.skill div{display:flex;flex-wrap:wrap;gap:8px}
+
+/* experience */
+.role-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:34px;display:grid;grid-template-columns:200px 1fr;gap:36px}
+.when{color:var(--accent);font-weight:600}
+.role-card h3{font-size:24px}
+.role-card .co{color:var(--muted);margin:6px 0 20px}
+.role-card ul{margin:0;padding-left:20px;display:grid;gap:10px;color:#cfd7e3}
+.role-card li::marker{color:var(--accent)}
+
+/* highlights + edu */
+.hl{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.hl div{border-left:2px solid var(--accent);padding:4px 0 4px 18px}
+.hl b{display:block;font-family:var(--display);font-size:18px;margin-bottom:4px}
+.hl span{color:var(--muted);font-size:15px}
+.edu{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:56px}
+.edu div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:22px}
+.edu b{font-family:var(--display);font-size:18px;display:block}
+.edu span{color:var(--muted);font-size:15px}
+
+/* contact */
+.contact{background:var(--surface);border:1px solid var(--line);border-radius:26px;padding:56px;text-align:center}
+.contact h2{font-size:clamp(30px,5vw,48px);font-weight:800}
+.contact>p{color:var(--muted);max-width:520px;margin:16px auto 28px}
+.info{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-top:44px;text-align:left}
+.info div{border-top:1px solid var(--line);padding-top:14px;font-size:15px;overflow-wrap:anywhere}
+.info small{display:block;color:var(--muted);margin-bottom:2px}
+footer{padding:32px 0 48px;color:var(--muted);font-size:14px;text-align:center}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;gap:36px;padding-top:48px}
+  .plat,.grid,.hl{grid-template-columns:repeat(2,1fr)}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .info{grid-template-columns:repeat(2,1fr)}
+  .role-card{grid-template-columns:1fr;gap:12px}
+  .links{display:none}
+}
+@media(max-width:600px){
+  section{padding:64px 0}
+  .plat,.grid,.hl,.skills,.edu{grid-template-columns:1fr}
+  .contact{padding:36px 22px}
+  .role-card{padding:24px}
+}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<nav><div class="wrap nav">
+  <a class="brand" href="#top">
+    <span class="mono"><img src="profile-image.jpeg" alt="Prasad Sarnobat logo"></span>
+    Prasad Sarnobat
+  </a>
+  <div class="links"><a href="#platforms">Platforms</a><a href="#projects">Projects</a><a href="#work">Services</a><a href="#skills">Skills</a><a href="#experience">Experience</a><a href="#contact">Contact</a></div>
+  <a class="btn primary" href="mailto:psarnobat0@gmail.com">Email me</a>
+</div></nav>
+
+<main id="top" class="wrap">
+  <div class="hero">
+    <div>
+      <p class="role">Web Developer, Kolhapur, India</p>
+      <h1>Webflow, WordPress and Shopify, built to load fast and convert.</h1>
+      <p class="lead">2 years and 9 months of building custom, responsive websites and online stores. I turn Figma designs into clean, cross-browser code and tune every site for speed, SEO and Core Web Vitals.</p>
+      <div class="cta"><a class="btn primary" href="#projects">Browse live projects</a><a class="btn" href="mailto:psarnobat0@gmail.com">Start a project</a></div>
+    </div>
+    <aside class="card-id">
+      <div class="avatar"><img src="portfolio/profile-image.jpeg" alt="Prasad Sarnobat"></div>
+      <h3>Prasad Anil Sarnobat</h3>
+      <p>Webflow · WordPress · Shopify Specialist</p>
+      <span class="status">Available for immediate joining</span>
+    </aside>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><b>2y 9m</b><span>Professional experience</span></div>
+    <div class="stat"><b>6</b><span>Platforms worked in</span></div>
+    <div class="stat"><b>3</b><span>Core platforms: Webflow, WP, Shopify</span></div>
+    <div class="stat"><b>17</b><span>Live sites featured</span></div>
+  </div>
+
+  <section id="platforms">
+    <div class="sec-head"><h2>What I build in</h2><p>Three platforms I work in every day, plus three more I can pick up when a project calls for them.</p></div>
+    <div class="plat">
+      <div class="pl wf" style="--c:var(--wfl)"><h3>Webflow</h3><p>Custom-designed marketing sites with CMS collections, interactions and clean, responsive layouts.</p></div>
+      <div class="pl wp" style="--c:var(--wp)"><h3>WordPress</h3><p>Custom sites in Elementor, WPBakery, DIVI and Gutenberg, with ACF for flexible content.</p></div>
+      <div class="pl" style="--c:var(--sh)"><h3>Shopify</h3><p>Liquid themes, reusable custom sections and schema-driven storefronts.</p></div>
+      <div class="pl" style="--c:var(--oth)"><h3>Wix, Kajabi, Squarespace</h3><p>Additional platforms I've worked with alongside the core three.</p></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="sec-head"><h2>Live projects</h2><p>Every card opens a real, live site. Filter by platform to see how the toolkit changes with the job.</p></div>
+    <div class="filters" data-t=".proj" role="group" aria-label="Filter projects by platform">
+      <button class="chip-btn" data-f="all" aria-pressed="true">All projects</button>
+      <button class="chip-btn" data-f="sh" aria-pressed="false">Shopify</button>
+      <button class="chip-btn" data-f="wp" aria-pressed="false">WordPress</button>
+      <button class="chip-btn" data-f="wf" aria-pressed="false">Webflow</button>
+      <button class="chip-btn" data-f="wx" aria-pressed="false">Wix</button>
+    </div>
+    <div class="grid">
+      <a class="proj sh" data-p="sh" href="https://chantybikes.de/" target="_blank" rel="noopener"><span class="tag-p">Shopify</span><h3>Chanty Bikes</h3><small>chantybikes.de</small><p>Storefront for a European children's bike and cargo-trike brand, with navigation by age and height and pre-order flows.</p><div class="tags"><span>Liquid</span><span>Shopify 2.0</span></div><span class="visit">Visit live site ↗</span></a>
+      <a class="proj sh" data-p="sh" href="https://mymobo.com/" target="_blank" rel="noopener"><span class="tag-p">Shopify</span><h3>MOBO</h3><small>mymobo.com</small><p>Education-first store for a 7-in-1 myofascial release tool, with video hero sections and an FAQ-led buying flow.</p><div class="tags"><span>Shopify 2.0</span><span>App integrations</span></div><span class="visit">Visit live site ↗</span></a>
+      <a class="proj sh" data-p="sh" href="https://koanna.com/" target="_blank" rel="noopener"><span class="tag-p">Shopify</span><h3>Koanna</h3><small>koanna.com</small><p>Multi-market store (DE, UK, US) for infrared sauna blankets and red-light therapy, with locale-aware navigation.</p><div class="tags"><span>Multi-market</span><span>Reviews app</span></div><span class="visit">Visit live site ↗</span></a>
+      <a class="proj sh" data-p="sh" href="https://cateandchloe.com/" target="_blank" rel="noopener"><span class="tag-p">Shopify</span><h3>Cate &amp; Chloe</h3><small>cateandchloe.com</small><p>Large jewelry and gift-bundle catalogue with ongoing theme customization, bug fixes and speed optimization.</p><div class="tags"><span>Performance</span><span>Bug fixes</span></div><span class="visit">Visit live site ↗</span></a>
+      <a class="proj sh" data-p="sh" href="https://joybra.com/" target="_blank" rel="noopener"><span class="tag-p">Shopify</span><h3>Joy Bra</h3><small>joybra.com</small><p>Comfort-first intimates brand with a bundle-builder app integration and seasonal campaign sections.</p><div class="tags"><span>App integration</span><span>Metafields</span></div><span class="visit">Visit live site ↗</span></a>
+      <a class="proj sh" data-p="sh" href="https://comfortbra.com/" target="_blank" rel="noopener"><span class="tag-p">Shopify</span><h3>Comfort Bra</h3><small>comfortbra.com</small><p>Intimates label with regular maintenance, UI fixes, product page updates and seasonal builds.</p><div class="tags"><span>UI fixes</span><span>Product pages</span></div><span class="visit">Visit live site ↗</span></a>
+      <a class="proj sh" data-p="sh" href="https://talon.gg/" target="_blank" rel="noopener"><span class="tag-p">Shopify + PageFly</span><h3>Talon</h3><small>talon.gg</small><p>Merch store for an Asia-Pacific esports and gaming lifestyle organization, with custom landing and product pages.</p><div class="tags"><span>PageFly</span><span>Landing pages</span></div><span class="visit">Visit live site ↗</span></a>
+      <a class="proj wp" data-p="wp" href="https://www.medusahcs.com/" target="_blank" rel="noopener"><span class="tag-p">WordPress · Elementor</span><h3>MedUSA Healthcare Services</h3><small>medusahcs.com</small><p>Multi-page site for a US medical billing and revenue-cycle management company, with service pages and a client portal section.</p><div class="tags"><span>Elementor</span><span>Multi-page</span></div><span class="visit">Visit live site ↗</span></a>
+      <a class="proj wp" data-p="wp" href="https://project8.walstargroup.org/" target="_blank" rel="noopener"><span class="tag-p">WordPress · Elementor</span><h3>Renowned Finishing</h3><small>project8.walstargroup.org</small><p>Redesign for an Alberta furniture and cabinet-refinishing company, with a before/after gallery and a free-estimate booking flow.</p><div class="tags"><span>Elementor</span><span>Before/after gallery</span></div><span class="visit">Visit live site ↗</span></a>
+      <a class="proj wf" data-p="wf" href="https://www.deemerge.ai/" target="_blank" rel="noopener"><span class="tag-p">Webflow</span><h3>DEEMERGE</h3><small>deemerge.ai</small><p>Private-beta marketing site for a B2B AI work assistant, with separate landing experiences for agencies, legal teams and startups.</p><div class="tags"><span>Segmented landing pages</span><span>Forms</span></div><span class="visit">Visit live site ↗</span></a>
+      <a class="proj wf" data-p="wf" href="https://www.enforcity.com/" target="_blank" rel="noopener"><span class="tag-p">Webflow</span><h3>Enforcity</h3><small>enforcity.com</small><p>Multi-page site for an AI-driven DMCA takedown and content-protection platform, built for creators and agencies.</p><div class="tags"><span>Multi-page</span><span>Product explainer</span></div><span class="visit">Visit live site ↗</span></a>
+      <a class="proj wf" data-p="wf" href="https://www.nanoclearsystems.com/" target="_blank" rel="noopener"><span class="tag-p">Webflow</span><h3>NanoClear Systems</h3><small>nanoclearsystems.com</small><p>Technology and applications site for a water-treatment company serving pools, hot tubs and cold plunges, in English and Hebrew.</p><div class="tags"><span>Multi-language</span><span>Distributor CTAs</span></div><span class="visit">Visit live site ↗</span></a>
+      <a class="proj wf" data-p="wf" href="https://www.15minchallenge.com.au/" target="_blank" rel="noopener"><span class="tag-p">Webflow</span><h3>15 Minute Challenge</h3><small>15minchallenge.com.au</small><p>Content-rich site for an Australian corporate wellness program, with industry pages, case studies and testimonial carousels.</p><div class="tags"><span>CMS content</span><span>Case studies</span></div><span class="visit">Visit live site ↗</span></a>
+      <a class="proj wf" data-p="wf" href="https://www.supercreator.app/" target="_blank" rel="noopener"><span class="tag-p">Webflow</span><h3>Supercreator</h3><small>supercreator.app</small><p>Marketing site for a CRM and automation platform that helps content creators and agencies manage client communication.</p><div class="tags"><span>SaaS marketing</span><span>Product explainer</span></div><span class="visit">Visit live site ↗</span></a>
+      <a class="proj wx" data-p="wx" href="https://www.mh2dental.com/" target="_blank" rel="noopener"><span class="tag-p">Wix</span><h3>MH2 Dental</h3><small>mh2dental.com</small><p>Multi-location site for a Toronto dental clinic group, with location-specific booking links and service pages.</p><div class="tags"><span>Multi-location</span><span>Booking</span></div><span class="visit">Visit live site ↗</span></a>
+      <a class="proj wx" data-p="wx" href="https://www.sharptilt.com/" target="_blank" rel="noopener"><span class="tag-p">Wix</span><h3>Sharptilt Studio</h3><small>sharptilt.com</small><p>Portfolio-style site for a residential and commercial architecture studio, built to showcase project galleries.</p><div class="tags"><span>Portfolio layout</span><span>Galleries</span></div><span class="visit">Visit live site ↗</span></a>
+      <a class="proj wx" data-p="wx" href="https://www.lifetimetilers.com/" target="_blank" rel="noopener"><span class="tag-p">Wix</span><h3>Lifetime Tilers</h3><small>lifetimetilers.com</small><p>Site for a Massachusetts tile, slate and copper roofing company, with service pages and customer reviews.</p><div class="tags"><span>Local business</span><span>Reviews</span></div><span class="visit">Visit live site ↗</span></a>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="sec-head"><h2>What I deliver</h2><p>The work I do on each platform. Filter to see how the toolkit changes with the job.</p></div>
+    <div class="filters" role="group" aria-label="Filter by platform">
+      <button class="chip-btn" data-f="all" aria-pressed="true">All work</button>
+      <button class="chip-btn" data-f="wf" aria-pressed="false">Webflow</button>
+      <button class="chip-btn" data-f="wp" aria-pressed="false">WordPress</button>
+      <button class="chip-btn" data-f="sh" aria-pressed="false">Shopify</button>
+    </div>
+    <div class="grid">
+      <article class="work wf" data-p="wf"><span class="tag-p">Webflow</span><h3>Custom marketing sites</h3><p>Multi-page, fully responsive sites built in the Webflow Designer for SaaS, wellness, water-tech and B2B brands.</p><div class="tags"><span>Webflow Designer</span><span>Responsive</span></div></article>
+      <article class="work wf" data-p="wf"><span class="tag-p">Webflow</span><h3>CMS collections and dynamic content</h3><p>CMS-driven case studies, testimonials and content pages so clients can update their own site without touching the layout.</p><div class="tags"><span>CMS</span><span>Collections</span></div></article>
+      <article class="work wf" data-p="wf"><span class="tag-p">Webflow</span><h3>Segmented landing pages and forms</h3><p>Audience-specific landing experiences, lead forms and distributor call-to-actions that guide visitors to the right next step.</p><div class="tags"><span>Landing pages</span><span>Forms</span></div></article>
+      <article class="work wf" data-p="wf"><span class="tag-p">Webflow</span><h3>Multi-language and polish</h3><p>Multi-language builds, interactions and page-speed tuning, with ongoing updates and fixes after launch.</p><div class="tags"><span>Multi-language</span><span>Interactions</span><span>SEO</span></div></article>
+
+      <article class="work wp" data-p="wp"><span class="tag-p">WordPress</span><h3>Page-builder websites</h3><p>Dynamic, flexible sites built with Elementor, WPBakery, DIVI, Gutenberg and ACF so clients can manage their own content.</p><div class="tags"><span>Elementor</span><span>DIVI</span><span>ACF</span></div></article>
+      <article class="work wp" data-p="wp"><span class="tag-p">WordPress</span><h3>Figma to WordPress</h3><p>UI designs converted into fully responsive, cross-browser-compatible sites with a focus on mobile performance and UX.</p><div class="tags"><span>Figma</span><span>Responsive</span></div></article>
+      <article class="work wp" data-p="wp"><span class="tag-p">WordPress</span><h3>Theme and plugin customization</h3><p>Existing themes and plugins reshaped to match client branding, plus API, custom form and third-party tool integrations.</p><div class="tags"><span>PHP</span><span>REST APIs</span><span>Forms</span></div></article>
+      <article class="work wp" data-p="wp"><span class="tag-p">WordPress</span><h3>Speed, SEO and upkeep</h3><p>Optimization for page speed, SEO and Core Web Vitals, with ongoing bug fixes and content updates.</p><div class="tags"><span>Core Web Vitals</span><span>SEO</span></div></article>
+
+      <article class="work sh" data-p="sh"><span class="tag-p">Shopify</span><h3>Custom Liquid themes</h3><p>Themes built with Liquid, JavaScript, HTML and CSS, including reusable custom sections and scalable store components.</p><div class="tags"><span>Liquid</span><span>JavaScript</span></div></article>
+      <article class="work sh" data-p="sh"><span class="tag-p">Shopify</span><h3>Schema-driven storefronts</h3><p>Schema editing and theme customization for dynamic product, collection, cart and checkout-related experiences.</p><div class="tags"><span>Schema editing</span><span>Custom sections</span></div></article>
+      <article class="work sh" data-p="sh"><span class="tag-p">Shopify</span><h3>Figma to Shopify</h3><p>Designs converted into responsive, cross-browser-compatible Shopify storefronts.</p><div class="tags"><span>Figma</span><span>Responsive</span></div></article>
+      <article class="work sh" data-p="sh"><span class="tag-p">Shopify</span><h3>Performance and integrations</h3><p>Page speed, SEO and Core Web Vitals work to lift conversion, plus third-party app integrations and ongoing store fixes.</p><div class="tags"><span>Speed</span><span>App integrations</span></div></article>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="sec-head"><h2>Skills</h2></div>
+    <div class="skills">
+      <div class="skill" style="--c:var(--accent)"><h3>Frontend</h3><div><span>JavaScript (ES6+)</span><span>TypeScript</span><span>React.js</span><span>HTML5</span><span>CSS3</span><span>Bootstrap</span><span>Responsive design</span><span>Cross-browser compatibility</span></div></div>
+      <div class="skill" style="--c:var(--wfl)"><h3>Webflow</h3><div><span>Webflow Designer</span><span>CMS collections</span><span>Interactions</span><span>Responsive layouts</span><span>Forms</span><span>Multi-language sites</span></div></div>
+      <div class="skill" style="--c:var(--wp)"><h3>WordPress</h3><div><span>Elementor</span><span>WPBakery</span><span>DIVI Builder</span><span>Gutenberg</span><span>ACF</span><span>PHP</span><span>Theme and plugin customization</span></div></div>
+      <div class="skill" style="--c:var(--sh)"><h3>Shopify</h3><div><span>Liquid</span><span>Theme customization</span><span>Custom sections</span><span>Schema editing</span><span>Figma-to-Shopify</span><span>SEO and speed optimization</span></div></div>
+      <div class="skill" style="--c:var(--oth)"><h3>Other CMS platforms</h3><div><span>Wix</span><span>Kajabi</span><span>Squarespace</span></div></div>
+      <div class="skill" style="--c:var(--oth)"><h3>Automation and integrations</h3><div><span>Zapier</span><span>Webhooks</span><span>Make (Integromat)</span><span>Stripe</span><span>REST APIs</span></div></div>
+      <div class="skill"><h3>Backend and database</h3><div><span>Core Java</span><span>SQL</span><span>PL/SQL</span><span>Basic PHP</span><span>JDBC</span><span>JSP</span><span>Servlets</span></div></div>
+      <div class="skill"><h3>Tools and workflow</h3><div><span>Git</span><span>Figma</span><span>Agile/Scrum</span><span>Tomcat</span><span>NetBeans</span><span>Client handling</span><span>Team leadership</span></div></div>
+    </div>
+  </section>
+
+  <section id="experience">
+    <div class="sec-head"><h2>Experience</h2></div>
+    <div class="role-card">
+      <div class="when">January 2024 to present</div>
+      <div>
+        <h3>Web Developer: Webflow, WordPress and Shopify</h3>
+        <p class="co">Walster Technologies Pvt. Ltd., Kolhapur</p>
+        <ul>
+          <li>Built and customized Webflow and WordPress sites, using Elementor, WPBakery, DIVI, Gutenberg and ACF on the WordPress side.</li>
+          <li>Developed Shopify themes in Liquid with reusable custom sections and schema-driven components.</li>
+          <li>Converted Figma designs into responsive, cross-browser-compatible Webflow, WordPress and Shopify sites.</li>
+          <li>Optimized sites for page speed, SEO and Core Web Vitals, improving organic traffic and engagement.</li>
+          <li>Built Webflow CMS collections, segmented landing pages and forms for SaaS, wellness and B2B clients.</li>
+          <li>Integrated forms, Stripe, Zapier and Webhooks to connect sites with third-party tools.</li>
+          <li>Worked across Wix, Kajabi and Squarespace as projects required.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="highlights">
+    <div class="sec-head"><h2>Key highlights</h2></div>
+    <div class="hl">
+      <div><b>Multi-platform expertise</b><span>Webflow, WordPress, Shopify, Wix, Kajabi and Squarespace.</span></div>
+      <div><b>Figma-to-code</b><span>Design conversion for Webflow, WordPress and Shopify projects.</span></div>
+      <div><b>CMS-driven builds</b><span>Sites clients can update themselves, in Webflow and WordPress.</span></div>
+      <div><b>Client communication</b><span>Requirement gathering and client-facing work within Agile/Scrum workflows.</span></div>
+      <div><b>Java Full Stack training</b><span>Core Java, React.js and SQL foundation.</span></div>
+      <div><b>Ready to start</b><span>Available for immediate joining.</span></div>
+    </div>
+    <div class="edu">
+      <div><b>M.Sc. Computer Science</b><span>Shivaji University, Kolhapur · 2021 to 2023 · 77%</span></div>
+      <div><b>B.Sc. Computer Science</b><span>Dr. Ghali College, Gadhinglaj · 2021 · 64.32%</span></div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="contact">
+      <h2>Let's build your next site.</h2>
+      <p>A new Webflow site, a WordPress build, or a Shopify store that actually converts. Tell me what you need.</p>
+      <a class="btn primary" href="mailto:psarnobat0@gmail.com">psarnobat0@gmail.com</a>
+      <div class="info">
+        <div><small>Phone</small><a href="tel:+918007322924">+91 80073 22924</a></div>
+        <div><small>Location</small>Kolhapur, Maharashtra, India</div>
+        <div><small>LinkedIn</small><a href="https://linkedin.com/in/prasad-sarnobat" rel="noopener">prasad-sarnobat</a></div>
+        <div><small>Languages</small>English, Hindi, Marathi</div>
+      </div>
+    </div>
+  </section>
+</main>
+<footer>Prasad Sarnobat, Webflow, WordPress and Shopify Developer.</footer>
+
+<script>
+document.querySelectorAll('.chip-btn').forEach(function(b){
+  b.addEventListener('click',function(){
+    var f=b.dataset.f;
+    b.parentNode.querySelectorAll('.chip-btn').forEach(function(x){x.setAttribute('aria-pressed',x===b?'true':'false')});
+    document.querySelectorAll(b.parentNode.dataset.t||'.work').forEach(function(c){c.hidden=!(f==='all'||c.dataset.p===f)});
+  });
+});
+</script>
+</body>
+</html>
